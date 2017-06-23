@@ -1,3 +1,4 @@
+# python 2.7
 # TODO: modify file_path
 file_path = "G:\intro to DA\Intro to Data Analysis - Udacity.html"
 HtmlFile = open(file_path, 'r')
@@ -11,8 +12,9 @@ def get_next_title(page):
     if start_title == -1:
         return None, 0
     start_position = page.find('"', start_title)
+    start_position_without_num = page.find('. ', start_position)
     end_position = page.find('"', start_position+1)
-    title = page[start_position+1:end_position]
+    title = page[start_position_without_num+2:end_position]
     return title, end_position
 
 
